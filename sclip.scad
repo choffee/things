@@ -8,7 +8,7 @@ difference () {
         cylinder ( h=13, r1=5, r2=5 );
     }
     translate ([-8.2,0,-0.1]) {
-        cube ([6,3,13]);
+        cube ([6,5,13]);
     }
 }
 
