@@ -3,8 +3,8 @@
 bar_diameter = 23;
 bar_radius = bar_diameter / 2;
 clamp_width = 35;
-cover_thickness = 7;
-outer_cover_radius = bar_radius + ( cover_thickness / 2 );
+cover_thickness = 5;
+outer_cover_radius = bar_radius +  cover_thickness  ;
 cover_length = bar_diameter + 30;
 tiewrap_width=5;
 tiewrap_depth=1.7;
