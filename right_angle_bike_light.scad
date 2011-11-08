@@ -5,7 +5,7 @@ bar_radius = bar_diameter / 2;
 clamp_width = 35;
 cover_thickness = 7;
 outer_cover_radius = bar_radius + ( cover_thickness / 2 );
-cover_length = bar_diameter + 20;
+cover_length = bar_diameter + 30;
 tiewrap_width=5;
 tiewrap_depth=1.7;
 
@@ -53,14 +53,14 @@ difference () {
     translate ([-cover_length/2 - 0.5,-outer_cover_radius, -(outer_cover_radius * 2 - cover_thickness / 2 )]) {
         cube ([cover_length+1, outer_cover_radius * 2, outer_cover_radius]);
     }
-    translate ([cover_length / 2 - 5 ,0, -cover_length/4]) {
+    translate ([cover_length/2 - tiewrap_width * 2  ,0, -bar_radius]) {
         rotate([0,90,0]) {
-            tube(lenght=tiewrap_width, inner_r=outer_cover_radius - tiewrap_depth, outer_r=outer_cover_radius + 1);
+            tube(length=tiewrap_width, inner_r=outer_cover_radius - tiewrap_depth, outer_r=outer_cover_radius + 1);
         }
     }
-    translate ([-(cover_length / 2 - 5) ,0, -cover_length/4]) {
+    translate ([-(cover_length / 2 - tiewrap_width ) ,0, -bar_radius]) {
         rotate([0,90,0]) {
-            tube(lenght=tiewrap_width, inner_r=outer_cover_radius - tiewrap_depth, outer_r=outer_cover_radius + 1);
+            tube(length=tiewrap_width, inner_r=outer_cover_radius - tiewrap_depth, outer_r=outer_cover_radius + 1);
         }
     }
 }
