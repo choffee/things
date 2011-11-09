@@ -18,7 +18,7 @@ module tube (length, outer_r, inner_r) {
     }
 }
 
-translate ( [0,0,bar_radius]) {
+module full_stand () {
 union () {
 difference () {
     union () {
@@ -65,4 +65,13 @@ difference () {
     }
 }
 }
+}
+
+difference () {
+    rotate([90,90,0]) {
+        full_stand ();
+    }
+    translate ([-50,-50,-100]) {
+        cube ([100,100,100]);
+    }
 }
