@@ -16,12 +16,14 @@
 
 bar_diameter = 23;
 bar_radius = bar_diameter / 2;
-clamp_width = 35;
+clamp_width = 45;
 cover_thickness = 5;
 outer_cover_radius = bar_radius +  cover_thickness  ;
 cover_length = bar_diameter + 30;
 tiewrap_width=5;
 tiewrap_depth=1.7;
+penny_r= 20.41 / 2 + 1;
+penny_w= 1.7 + 0.5;
 
 module tube (length, outer_r, inner_r) {
     difference () {
@@ -85,7 +87,12 @@ difference () {
     rotate([90,90,0]) {
         full_stand ();
     }
-    translate ([-50,-50,-100]) {
-        cube ([100,100,100]);
+    translate ([-100,-100,-150]) {
+        cube ([150,150,150]);
+    }
+    translate ([-penny_w/2, -clamp_width / 2, 0]) {
+        rotate ([0,90,0]) {
+            cylinder (h=penny_w, r1=penny_r, r2=penny_r);
+        }
     }
 }
