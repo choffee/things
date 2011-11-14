@@ -11,5 +11,9 @@ reshare.
 * sclip.scad - Small cable clip for hanging the cable on the back of a latop
   screen so that it does not get so strained.
 * bike_clip.scad - The start of a generic bike bar clip
+* android.scad - An attempt to make a 3D Android ( Licenced under CC by deed
+  see file )
+  
+
 
 

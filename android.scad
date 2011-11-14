@@ -1,18 +1,12 @@
 // Android model
 // Copyright 2011 John Cooper
 
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//   (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Licenced under Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+// https://creativecommons.org/licenses/by/3.0/deed.en
+
+// Based on dimentions from the google Android.svg found here: 
+// https://secure.wikimedia.org/wikipedia/en/wiki/File:Android_robot.svg
+
 
 // You can adjust the size here
 bodywidth = 40;
