@@ -13,6 +13,8 @@ reshare.
 * bike_clip.scad - The start of a generic bike bar clip
 * android.scad - An attempt to make a 3D Android ( Licenced under CC by deed
   see file )
+* folding_phone_stand.scad - Print two of these and clip them together and
+  stand your phone on it.
   
 
 
