@@ -20,6 +20,10 @@ to use, extend and reshare under those terms.
 * **folding_phone_stand.scad**
     Print two of these and clip them together and
     stand your phone on it.
+* **led_lamp_holder.scad**
+    Small push fit lamp holder for some LED lamps that I got from ebay.
+    They are LED G4 12V and 24 LED arranged on one side for caravan or marine
+    lighting. ~0.9W.
   
 
 
