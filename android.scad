@@ -104,13 +104,20 @@ module leg ( leg_r, bodyheight, leglength, withfoot) {
             cylinder (h=8, r=3);
         }
         if (withfoot) {
-            translate ([0, leg_r,0]) {
-                rotate ([90, 0, 0]) {
-                    cylinder (h=leg_r * 2.4, r=leg_r);
+            difference () {
+                union () {
+                    translate ([0, leg_r,0]) {
+                        rotate ([90, 0, 0]) {
+                            cylinder (h=leg_r * 2.4, r=leg_r);
+                        }
+                    }
+                    translate ([0, - leg_r * 1.4,0]) {
+                        sphere( leg_r );
+                    }
                 }
-            }
-            translate ([0, - leg_r * 1.4,0]) {
-                sphere( leg_r );
+                translate ([- ( leg_r + 0.5), -leg_r * 2.5, - leg_r]) {
+                    cube ([leg_r * 2 + 1 , leg_r * 3.6, leg_r] );
+                }
             }
         } else {
             sphere ( leg_r );
