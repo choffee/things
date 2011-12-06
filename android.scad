@@ -115,9 +115,9 @@ module arm (arm_r, bodyheight, armlength) {
         }
         sphere (arm_r);
         // And now a peg to hold them on
-        translate ([arm_r - bodygap , 0, armlength]) {
-            rotate ([0,90,0]) {
-                cylinder (h=bodygap* 2, r=arm_r/4);
+        translate ([arm_r + (bodygap * 2) , 0, armlength]) {
+            rotate ([180,90,0]) {
+                splitPeg(arm_r / 4);
             }
         }
     }
@@ -126,8 +126,10 @@ module arm (arm_r, bodyheight, armlength) {
 module leg ( leg_r, bodyheight, leglength, withfoot) {
     union () {
         cylinder (h=leglength, r=leg_r );
-        translate ([0, 0, leglength]) {
-            cylinder (h=8, r=3);
+        translate ([0, 0, leglength + leg_r]) {
+            rotate ([180,0,180]) {
+                splitPeg(leg_r / 4 );
+            }
         }
         if (withfoot) {
             difference () {
@@ -177,4 +179,3 @@ translate ([0,0,bodyheight*2]) {
     }
 }
 
-splitPeg(20);
