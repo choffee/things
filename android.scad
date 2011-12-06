@@ -32,8 +32,33 @@ antenna_angle = 25 ;
 antenna_height = bodywidth * 0.404;// 74
 standing  = true;
 
-
 // You should not need to change anything after this
+
+
+// Module: SplitPeg
+// Create a split peg that can be pushed into a hole
+
+module splitPeg(radius) {
+    length = radius * 4;
+    splitWidth = radius * 0.4;
+    splitDepth = length * 0.4;
+    union () {
+        difference () {
+            cylinder (h=length, r=radius);
+            translate ([- radius,-(splitWidth / 2),-0.1]) {
+                cube ([radius * 2.2, splitWidth, splitDepth ]);
+            }
+        }
+        translate ([0,radius,0]) {
+            cylinder(h=splitDepth / 2, r1=0, r2=splitWidth);
+        }
+        translate ([0,- radius,0]) {
+            cylinder(h=splitDepth / 2, r1=0, r2=splitWidth);
+        }
+    }
+
+
+}
 
 module antenna(length, width) {
     union () {
@@ -41,6 +66,7 @@ module antenna(length, width) {
         translate([0,0,length]) { sphere(width); }
     }
 }
+
 
 module head(body_r)  {
     $fs = 1;  // Crank up the resolution
@@ -141,12 +167,14 @@ translate ([0,0,bodyheight*2]) {
         }
     }
     if ( standing ) {
-        translate ([ bodywidth/ 2 * 0.4 , 0, - (bodyheight + leglength)]) {
+        translate ([ bodywidth/ 2 * 0.4 , 0, - (bodyheight + leglength + bodygap)]) {
             leg(legwidth/2, bodyheight, leglength, withfoot=true);
         }
-        translate ([ - bodywidth / 2  * 0.4, 0, - (bodyheight + leglength)]) {
+        translate ([ - bodywidth / 2  * 0.4, 0, - (bodyheight + leglength + bodygap)]) {
             leg(legwidth/2, bodyheight, leglength, withfoot=true);
         }
 
     }
 }
+
+splitPeg(20);
