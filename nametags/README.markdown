@@ -2,6 +2,7 @@ These are some simple name tags.
 ================================
 
 First in Inkscape write your text. I am using the Willy Wonker one here.
+Put the page into mm for units and place the text in the bottom left at zero.
 
 Then select it all, and covert object to a path.
 Then select all the paths and  then make segments into lines.
