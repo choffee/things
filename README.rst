@@ -24,7 +24,18 @@ to use, extend and reshare under those terms.
     Small push fit lamp holder for some LED lamps that I got from ebay.
     They are LED G4 12V and 24 LED arranged on one side for caravan or marine
     lighting. ~0.9W.
-  
+* **nametags**
+    Just some silly little nametags that I made for christmas. They are just
+    the extrusion of the willy wonka font.
+
+RepRap
+======
+
+Any reprap related things
+
+* **z_axis_endstop.scad**
+    This is an endstop that holds a microswitch in a very solid position and
+    then allows you to fine tune the Z-axis using a bolt.
 
 
 
