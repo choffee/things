@@ -13,6 +13,7 @@ bodywidth = 183.2;
 bodyheight = bodywidth * 0.85; // 156
 armwidth  = bodywidth * 0.26; // 40
 armlength = bodyheight * 0.8; // 125 including the round bits;
+peg_r = armwidth * 0.1;
 legwidth  = armwidth ;
 bodygap = bodywidth * 0.04;
 leglength = bodyheight * 0.43; // 67
@@ -39,6 +40,7 @@ standing  = true;
 // Create a split peg that can be pushed into a hole
 
 module splitPeg(radius) {
+    // The length should relate to the length in splitPegHole
     length = radius * 4;
     splitWidth = radius * 0.4;
     splitDepth = length * 0.4;
@@ -58,6 +60,16 @@ module splitPeg(radius) {
     }
 
 
+}
+
+// Module: SplitPegHole
+// Create a hole that will take the split peg
+// For now just a hole and hope that the printing with be rough
+// enough to hold it.
+module splitPegHole (radius) {
+    // The length should be related to the splitPeg length
+    length = radius * 4;
+    cylinder (h=length, r=radius);
 }
 
 module antenna(length, width) {
@@ -117,7 +129,7 @@ module arm (arm_r, bodyheight, armlength) {
         // And now a peg to hold them on
         translate ([arm_r + (bodygap * 2) , 0, armlength]) {
             rotate ([180,90,0]) {
-                splitPeg(arm_r / 4);
+                splitPeg(peg_r);
             }
         }
     }
@@ -126,9 +138,9 @@ module arm (arm_r, bodyheight, armlength) {
 module leg ( leg_r, bodyheight, leglength, withfoot) {
     union () {
         cylinder (h=leglength, r=leg_r );
-        translate ([0, 0, leglength + leg_r]) {
+        translate ([0, 0, leglength + leg_r * 0.4 ]) {
             rotate ([180,0,180]) {
-                splitPeg(leg_r / 4 );
+                splitPeg(peg_r);
             }
         }
         if (withfoot) {
@@ -156,9 +168,29 @@ module leg ( leg_r, bodyheight, leglength, withfoot) {
 
 
 translate ([0,0,bodyheight*2]) {
-    % head (bodywidth /2 );
+    // head (bodywidth /2 );
     translate ([0,0,-(bodyheight + bodygap)]) {
-    %  body (bodywidth / 2, bodyheight);
+        difference () {
+          % body (bodywidth / 2, bodyheight);
+            translate ([bodywidth / 2 - peg_r * 4, 0, armlength + bodygap  ]) {
+                rotate ([0, 90, 0]) {
+                    splitPegHole(peg_r);
+                }
+            }
+            translate ([- (bodywidth / 2 - peg_r * 4) , 0, armlength + bodygap  ]) {
+                rotate ([0, -90, 0]) {
+                    splitPegHole(peg_r);
+                }
+            }
+            if ( standing ) {
+                translate ([bodywidth / 2 * 0.4 , 0, -0.1]) {
+                    splitPegHole(peg_r);
+                }
+                translate ([- (bodywidth / 2 * 0.4) , 0, -0.1]) {
+                    splitPegHole(peg_r);
+                }
+            }
+        }
     }
     translate ([-(bodywidth/2 + armwidth/2 + bodygap), 0,-bodyheight]) {
         arm(armwidth/2, bodyheight, armlength);
@@ -170,7 +202,7 @@ translate ([0,0,bodyheight*2]) {
     }
     if ( standing ) {
         translate ([ bodywidth/ 2 * 0.4 , 0, - (bodyheight + leglength + bodygap)]) {
-            leg(legwidth/2, bodyheight, leglength, withfoot=true);
+            % leg(legwidth/2, bodyheight, leglength, withfoot=true);
         }
         translate ([ - bodywidth / 2  * 0.4, 0, - (bodyheight + leglength + bodygap)]) {
             leg(legwidth/2, bodyheight, leglength, withfoot=true);
