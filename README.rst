@@ -27,6 +27,8 @@ to use, extend and reshare under those terms.
 * **nametags**
     Just some silly little nametags that I made for christmas. They are just
     the extrusion of the willy wonka font.
+* **game_tile_holder.scad**
+    A Pair of tile holders for game tiles
 
 RepRap
 ======
