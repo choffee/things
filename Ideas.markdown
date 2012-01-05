@@ -16,3 +16,6 @@ Headphone stand for Sennheisers
   Perhpas a person holding their hands out.
   A large ear.
 
+Prusa shoes
+-----------
+  No real purpose just shoes that would fit over the feet on my Prusa so they don't get cold.
