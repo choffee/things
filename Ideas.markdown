@@ -19,3 +19,9 @@ Headphone stand for Sennheisers
 Prusa shoes
 -----------
   No real purpose just shoes that would fit over the feet on my Prusa so they don't get cold.
+
+RAMPS factory topper
+--------------------
+
+Nice to have a top that fits over the RAMPS electronics and has a small industiral landscape over the top.
+Allowing the warm air to escape up the chimnys and maybe the wires come in on some train tracks.
