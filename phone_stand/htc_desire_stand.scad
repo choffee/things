@@ -36,15 +36,22 @@ module main () {
           }
         }
     }
-    translate ([0, 15, 0]) {
-      cylinder(h=3, r=25.1);
+    minkowski () {
+        difference () {
+          translate ([0, 15, 0]) {
+            cylinder(h=2, r=25.1);
+          }
+          translate ([0, 24, -0.1]) {
+            cylinder (h=2.2, r=14);
+          }
+        }
+        rotate ([90,0,0]) {
+          cylinder (h=2, r=2.4);
+        }
     }
   }
-    translate ([0, 24, -0.1]) {
-      cylinder (h=3.2, r=14);
-    }
-    translate ([-25, 0, -5]) {
-      cube ([50,50,5]);
+    translate ([-50, -30, -5]) {
+      cube ([100,100,5]);
     }
   }
 
