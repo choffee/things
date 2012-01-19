@@ -43,21 +43,20 @@ module main () {
     translate ([-25, 0, -5]) {
       cube([50,50,5]);
     }
-    translate ([0, 25, -0.1]) {
-      cylinder(h=0.9, r=20);
+  for ( x=[-4:4] ) {
+    translate ([x*5,-0.1,2.5]) {
+      rotate ([-90, 0, 0]) {
+        cylinder (h=51, r=2, $fs=0.2);
+      }
     }
-    translate ([18, 7, -0.1]) {
-      cylinder(h=0.9, r=6);
+  }
+  for ( y=[0:8] ) {
+    translate ([25.1, y*5 +5 ,2.5]) {
+      rotate ([-90, 0, 90]) {
+        cylinder (h=51, r=2, $fs=0.2);
+      }
     }
-    translate ([-18, 7, -0.1]) {
-      cylinder(h=0.9, r=6);
-    }
-    translate ([18, 43, -0.1]) {
-      cylinder(h=0.9, r=6);
-    }
-    translate ([-18, 43, -0.1]) {
-      cylinder(h=0.9, r=6);
-    }
+  }
   }
 
   //  translate ([-25,-2,28]) {
