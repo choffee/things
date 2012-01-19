@@ -25,38 +25,27 @@ module main () {
   difference () {
   union () {
     rotate ([-20,0,0]) {
-        translate ([-17,1,1]) {
-          rotate ([0,0,-5]) {
+        translate ([-20,1,1]) {
+          rotate ([0,0,-8]) {
             hand();
           }
         }
-        translate ([17,1,1]) {
+        translate ([20,1,1]) {
           mirror() {
             hand();
           }
         }
     }
-    translate ([-25, 0, 0]) {
-      cube([50,50,5]);
+    translate ([0, 15, 0]) {
+      cylinder(h=3, r=25.1);
     }
   }
+    translate ([0, 24, -0.1]) {
+      cylinder (h=3.2, r=14);
+    }
     translate ([-25, 0, -5]) {
-      cube([50,50,5]);
+      cube ([50,50,5]);
     }
-  for ( x=[-4:4] ) {
-    translate ([x*5,-0.1,2.5]) {
-      rotate ([-90, 0, 0]) {
-        cylinder (h=51, r=2, $fs=0.2);
-      }
-    }
-  }
-  for ( y=[0:8] ) {
-    translate ([25.1, y*5 +5 ,2.5]) {
-      rotate ([-90, 0, 90]) {
-        cylinder (h=51, r=2, $fs=0.2);
-      }
-    }
-  }
   }
 
   //  translate ([-25,-2,28]) {
