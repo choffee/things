@@ -25,3 +25,8 @@ RAMPS factory topper
 
 Nice to have a top that fits over the RAMPS electronics and has a small industiral landscape over the top.
 Allowing the warm air to escape up the chimnys and maybe the wires come in on some train tracks.
+
+Park Bench ends for coffee stirers
+----------------------------------
+
+When you get a coffee or tea on the train they give you a little wooden stick to stir it with. I think it would be cool to make a small park bench from them by printing a couple of ends.
