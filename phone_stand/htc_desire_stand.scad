@@ -1,10 +1,23 @@
-// Seems to be an obvius thing but nobody has made me a smart phone stand
-// for my HTC Desire so I am going to try myself.
-// 
-// I would like to have it so that I can put a power plug in it. Simplest may
-// be just to make it so that it has a gap at the  front to allow for power.
+// Handy phone holder
+// For my HTC Desire.
 
-// Could do two hands, just need a scad image to use...
+//  Copyright 2011 John Cooper 
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//   (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+// Make the curves more curvey
+$fs=0.2;
 
 module hand () {
     scale([ 0.5, 0.5, 0.5 ]) 
