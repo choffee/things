@@ -30,3 +30,8 @@ Park Bench ends for coffee stirers
 ----------------------------------
 
 When you get a coffee or tea on the train they give you a little wooden stick to stir it with. I think it would be cool to make a small park bench from them by printing a couple of ends.
+
+Interlocking mugs
+-----------------
+
+Mugs that latch together so that you can carry more than one back to the office at a time using a single handle.
