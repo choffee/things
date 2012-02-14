@@ -23,29 +23,43 @@ module motor_holder () {
   rotate ([0, -90, 0]) {
     union () {
       difference () {
-        cylinder (h=20, r=7);
+        cylinder (h=25, r=11);
         translate ([0, 0, -0.1]) {
-          cylinder (h=21, r=5);
+          cylinder (h=26, r=10);
         }
-        translate ([0, -10, -0.1]) {
-          cube ([20, 20, 21]);
+        translate ([0, -12, -0.1]) {
+          cube ([25, 25, 26]);
         }
       }
+      // base support
+      translate ([-(10  ), -10, 0]) {
+        cube ([2.5, 20, 25]);
+      }
       // end stops
-      for ( x = [0, 1] ) {
-        translate ([-4, 0, 1 + x * 18]) {
-          cube ([4, 14, 2], center=true);
+      difference () {
+        for ( x = [0, 1] ) {
+          translate ([-6, 0, -1 + x * 27]) {
+            cube ([8, 20, 2], center=true);
+          }
+        }
+        // spindle end hole
+        translate ([-1.5, 0, -2]) {
+          cylinder (h=2, r=3.2);
+        }
+        // other end hole
+        translate ([-1.5, 0, 25]) {
+          cylinder (h=2, r=5.2);
         }
       }
       // clip
-      translate ([0, 0, 10]) {
+      translate ([-1, 0, 10]) {
         difference () {
-          cylinder (h=3, r=7);
-          translate ([0, 0, -0.1]) {
-            cylinder (h=3.2, r=6);
+          cylinder (h=3, r=12);
+          translate ([-2, 0, -0.1]) {
+            cylinder (h=3.2, r=11);
           }
           translate ([8, 0, -0.1]) {
-            cylinder (h=3.2, r=6);
+            cylinder (h=3.2, r=8);
           }
         }
       }
@@ -101,18 +115,40 @@ module base () {
   }
 }
 
+module motor() {
+  union () {
+    difference () {
+      cylinder (h=25, r=10);
+      for ( x = [1, -1]) {
+        translate ([(17.5 * x) -10, -20, 0]) {
+          cube ([20, 40, 28]);
+        }
+      }
+    }
+    translate ([0, 0, 25]) {
+      cylinder (h=2.5, r=3);
+    }
+    translate ([0, 0, 27.5]) {
+      cylinder (h=8.6, r=1);
+    }
+    translate ([0, 0, -2.5]) {
+      cylinder (h=2.5, r=5);
+    }
+  }
+}
+
 
 module main () {
   union () {
     base ();
-    translate ([0, -60, 0]) {
+    translate ([0, -57, 0]) {
       tail ();
     }
-    translate ([0, 64, 0]) {
-      cylinder (h=5, r=5);
+    translate ([0, 59, 0]) {
+      cylinder (h=3, r=8);
     }
     for ( x = [1, -1]) {
-      translate ([50 * x + 10, 20, 8]) {
+      translate ([45 * x + 10, 15, 11]) {
         motor_holder();
       }
       translate ([3 * x, 27, 3]) {
@@ -120,6 +156,12 @@ module main () {
           led_holder();
         }
       }
+    }
+  }
+
+  translate ([30, 15, 9]) {
+    rotate ([0, 90, 0]) {
+      // motor();
     }
   }
 }
