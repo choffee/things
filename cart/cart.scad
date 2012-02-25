@@ -32,14 +32,14 @@ module motor_holder () {
         }
       }
       // base support
-      translate ([-(10  ), -10, 0]) {
-        cube ([2.5, 20, 25]);
+      translate ([-(11  ), -10, -1]) {
+        cube ([3.5, 20, 27]);
       }
       // end stops
       difference () {
         for ( x = [0, 1] ) {
-          translate ([-6, 0, -1 + x * 27]) {
-            cube ([8, 20, 2], center=true);
+          translate ([-6.5, 0, -1 + x * 27]) {
+            cube ([9, 20, 1.9], center=true);
           }
         }
         // spindle end hole
@@ -71,9 +71,9 @@ module led_holder () {
   difference () {
     rotate ([-90,0,0]) {
       difference () {
-        cylinder (h=27, r1=4, r2=30);
+        cylinder (h=20, r1=4, r2=25);
         translate ([0, 0, -0.1]) {
-          cylinder (h=27.2, r1=3, r2=28);
+          cylinder (h=20.2, r1=3, r2=24);
         }
       }
     }
@@ -96,8 +96,8 @@ module tail () {
 
 
 module circuit_board () {
-  translate ([-20, 0, 0]) {
-    cube ([40, 60, 6]);
+  translate ([-30, 0, 0]) {
+    cube ([60, 80, 6]);
   }
 }
 
@@ -109,7 +109,7 @@ module base () {
         cylinder (h=3.2, r=60);
       }
     }
-    translate ([0,-45,2]) {
+    translate ([0,-55,2]) {
       circuit_board();
     }
   }
@@ -148,10 +148,12 @@ module main () {
       cylinder (h=3, r=8);
     }
     for ( x = [1, -1]) {
-      translate ([45 * x + 10, 15, 11]) {
-        motor_holder();
+      translate ([60 * x + 0, 15, 11]) {
+        rotate ([0,0,90 - (90 * x)]) {
+          motor_holder();
+        }
       }
-      translate ([3 * x, 27, 3]) {
+      translate ([3 * x, 30, 3]) {
         rotate ([0,0, -42.5 * x ]) {
           led_holder();
         }
