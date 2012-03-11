@@ -45,3 +45,8 @@ Terminator USB drive
 --------------------
 
 A model of the chip from the terminator that can take a USB drive.
+
+Teapot hooks
+------------
+
+The front half of a teapot that hooks onto the wall with the spout sticking out for hanging things on.
