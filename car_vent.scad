@@ -48,6 +48,16 @@ module scoop_out() {
   }
 }
 
+module end_stops() {
+  for ( l = [0, 1] ) {
+    translate([((inner_len - 0.5) * l)-(inner_width/2 + 1 ),top_width/2 - 1, inner_height - 1.5]) {
+      rotate([0, 45, 0]) {
+        cube([2,2,2]);
+      }
+    }
+  }
+}
+
 difference() {
   union() {
     difference() {
@@ -59,6 +69,7 @@ difference() {
       // Insert
       oblong(inner_len, inner_width, inner_height);
     }
+    end_stops();
   }
   translate([0, (top_width - inner_width + inner_thickness)/2, -0.5]) {
     // Insert cut out
