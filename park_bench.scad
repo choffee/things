@@ -23,7 +23,7 @@ st_w=6.5;
 st_h=1.4;
 
 // Some useful numbers
-height=st_w;
+height=4;
 
 module back() {
   translate([0, st_w * 3.8, 0]) {
