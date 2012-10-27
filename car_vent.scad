@@ -17,11 +17,11 @@
 
 $fs=0.2;
 
-top_len=110;
-top_width=20;
-inner_len=100;
-inner_width=10;
-inner_height=14;
+top_len=135.26;
+top_width=21.1;
+inner_len=125.4;
+inner_width=12.5;
+inner_height=13.3;
 inner_thickness=2;
 
 module oblong(len,width,height) {
@@ -36,13 +36,13 @@ module oblong(len,width,height) {
 }
 
 module scoop_out() {
-  translate([0, top_width/2, top_width]) {
+  translate([0, top_width/2, 20.2 ]) {
     rotate([0,90,0]) {
       cylinder(r=20, h=inner_len - inner_width);
     }
   }
   for ( l = [0, 1] ) {
-    translate([l * (inner_len - top_width/2),top_width/2,top_width ]) {
+    translate([l * (inner_len - top_width/2),top_width/2,top_width +0.2 ]) {
       sphere(r=top_width);
     }
   }
