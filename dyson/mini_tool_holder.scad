@@ -18,8 +18,8 @@
 // Add some smoothing
 $fs=0.2;
 
-tube_inner = 28 / 2;
-tube_outer = 35 / 2;
+tube_inner = 27 / 2;
+tube_outer = 36 / 2;
 tube_length = 36;
 tab_length = 16;
 bigtube_outer = 50 / 2 ;
@@ -50,10 +50,10 @@ module screw_hole() {
   translate([-9,0,0]) {
     rotate ([0,90,0]) {
       union () {
-        cylinder(r=4, h=20);
+        cylinder(r=2, h=20);
         cylinder(r=7, h=15);
         translate([0, 0, 15]) {
-          cylinder(h=2, r1=7, r2=4);
+          cylinder(h=2, r1=7, r2=2);
         }
       }
     }
