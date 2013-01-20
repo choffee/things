@@ -17,6 +17,7 @@
 
 // Add some smoothing
 $fs=0.2;
+$fn=400;
 
 tube_inner = 27 / 2;
 tube_outer = 36 / 2;
