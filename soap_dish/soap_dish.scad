@@ -23,8 +23,45 @@ depth=60;
 
 module back() {
   translate([0, -10, 0]) {
-    cube([150, 10, 40]);
+    cube([150, 10, 20]);
   }
+  translate([0,-10,20]) {
+    mountain(2);
+  }
+  translate([0,20,20]) {
+    mountain(1.2);
+  }
+  translate([width, -10, 20]) {
+    rotate([0,0,90]) {
+      mountain(2,10);
+      translate([0,10,0]) {
+        mountain(2.2,10);
+      }
+      translate([0,40,0]) {
+        mountain(1.4,10);
+      }
+      translate([0,100,0]) {
+        mountain(1.2,10);
+      }
+      translate([0,110,0]) {
+        mountain(1.7,10);
+      }
+      translate([0,120,0]) {
+        mountain(2.2,10);
+      }
+    }
+  }
+}
+
+module mountain(size, depth=5) {
+  polyhedron(
+    points = [ [0,0,0], [depth,0,0], [depth,20 * size,0], [0, 20 * size, 0], // the base
+               [0,10 * size,20 * size] ], // The top
+    triangles = [[0, 3, 4], // back
+                 [0, 1, 4], [2, 3, 4], //sides
+                 [1, 2, 4], // Front
+                 [0, 1, 2], [0, 4, 2] ] // base
+                 );
 }
 
 module snowboard() {
