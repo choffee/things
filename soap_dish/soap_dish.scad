@@ -25,13 +25,13 @@ module back() {
   translate([0, -10, 0]) {
     cube([150, 10, 20]);
   }
-  translate([0,-10,20]) {
+  translate([0,-10,19]) {
     mountain(2);
   }
-  translate([0,20,20]) {
+  translate([0,20,19]) {
     mountain(1.2);
   }
-  translate([width, -10, 20]) {
+  translate([width, -10, 19]) {
     rotate([0,0,90]) {
       mountain(2,10);
       translate([0,10,0]) {
@@ -65,7 +65,18 @@ module mountain(size, depth=5) {
 }
 
 module snowboard() {
-  cube([15, 50, 50]);
+  minkowski () {
+    difference () {
+      cube([10, 55, 30]);
+      // Cut out the sides
+      for ( r= [ 1, -1] ) {
+        translate([5 + (112 * r ),25,0]) {
+          cylinder(r=110, h=52, $fn=200);
+        }
+      }
+    }
+    cylinder(r=5, h=20);
+  }
 }
 
 module base() {
@@ -80,15 +91,23 @@ module base() {
     }
     // Remove the snowboards
     for ( r = [0,1,2,3,4,5,6] ) {
-      translate([10 + r * 20, 3, -1]) {
-        snowboard();
+      translate([10 + r * 20, 6, -1]) {
+        scale (0.8) {
+          snowboard();
+        }
       }
     }
   }
 
 }
 
-union() {
-  base();
-  back();
+difference() {
+  union() {
+    base();
+    back();
+  }
+  translate([-101,-30,0]) {
+    cube([100,100,100]);
+  }
 }
+
