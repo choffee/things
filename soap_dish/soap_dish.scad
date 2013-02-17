@@ -71,17 +71,24 @@ module mountain(size, depth=5) {
 }
 
 module snowboard() {
-  minkowski () {
-    difference () {
-      cube([10, 55, 30]);
-      // Cut out the sides
-      for ( r= [ 1, -1] ) {
-        translate([5 + (112 * r ),25,0]) {
-          cylinder(r=110, h=52, $fn=200);
+  union () {
+    minkowski () {
+      difference () {
+        cube([10, 55, 30]);
+        // Cut out the sides
+        for ( r= [ 1, -1] ) {
+          translate([5 + (112 * r ),25,0]) {
+            cylinder(r=110, h=52, $fn=200);
+          }
         }
       }
+      cylinder(r=5, h=20);
     }
-    cylinder(r=5, h=20);
+    for ( l = [0, 1] ) {
+      translate([4.75, -1 + l * 57, 0]) {
+        cylinder(r=9.5, h=50);
+      }
+    }
   }
 }
 
@@ -97,8 +104,8 @@ module base() {
     }
     // Remove the snowboards
     for ( r = [0,1,2,3,4,5,6] ) {
-      translate([10 + r * 20, 6, -1]) {
-        scale (0.8) {
+      translate([10 + r * 20, 8, -1]) {
+        scale (0.7) {
           snowboard();
         }
       }
