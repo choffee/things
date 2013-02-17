@@ -22,32 +22,38 @@ width=150;
 depth=60;
 
 module back() {
-  translate([0, -10, 0]) {
-    cube([150, 10, 20]);
-  }
-  translate([0,-10,19]) {
-    mountain(2);
-  }
-  translate([0,20,19]) {
-    mountain(1.2);
-  }
-  translate([width, -10, 19]) {
-    rotate([0,0,90]) {
-      mountain(2,10);
-      translate([0,10,0]) {
-        mountain(2.2,10);
-      }
-      translate([0,40,0]) {
-        mountain(1.4,10);
-      }
-      translate([0,100,0]) {
-        mountain(1.2,10);
-      }
-      translate([0,110,0]) {
-        mountain(1.7,10);
-      }
-      translate([0,120,0]) {
-        mountain(2.2,10);
+  union () {
+    translate([0, -10, 0]) {
+      cube([150, 10, 20]);
+    }
+    translate([0,-10,19]) {
+      mountain(2);
+    }
+    translate([0,20,19]) {
+      mountain(1.2);
+    }
+    translate([width, -10, 19]) {
+      rotate([0,0,90]) {
+        union () {
+          mountain(2,10);
+          translate([0,10,0]) {
+            mountain(2.2,10);
+          }
+          translate([0,40,0]) {
+            mountain(1.4,10);
+          }
+        }
+        union () {
+          translate([0,100,0]) {
+            mountain(1.2,10);
+          }
+          translate([0,110,0]) {
+            mountain(1.7,10);
+          }
+          translate([0,120,0]) {
+            mountain(2.2,10);
+          }
+        }
       }
     }
   }
@@ -55,12 +61,12 @@ module back() {
 
 module mountain(size, depth=5) {
   polyhedron(
-    points = [ [0,0,0], [depth,0,0], [depth,20 * size,0], [0, 20 * size, 0], // the base
+    points = [ [0,0,0], [depth,0,0], [depth,20 * size, 0], [0, 20 * size, 0], // the base
                [0,10 * size,20 * size] ], // The top
     triangles = [[0, 3, 4], // back
-                 [0, 1, 4], [2, 3, 4], //sides
-                 [1, 2, 4], // Front
-                 [0, 1, 2], [0, 4, 2] ] // base
+                 [0, 4, 1], [3, 2, 4], //sides
+                 [1, 4, 2], // Front
+                 [0, 1, 2], [0, 2, 3] ] // base
                  );
 }
 
@@ -106,7 +112,7 @@ difference() {
     base();
     back();
   }
-  translate([-101,-30,0]) {
+  translate([-100,-30,0]) {
     cube([100,100,100]);
   }
 }
