@@ -23,8 +23,8 @@ depth=60;
 
 module back() {
   union () {
-    translate([0, -10, 0]) {
-      cube([150, 10, 20]);
+    translate([0, -12, 0]) {
+      cube([150, 12, 20]);
     }
     translate([0,-10,19]) {
       mountain(2);
@@ -32,26 +32,26 @@ module back() {
     translate([0,20,19]) {
       mountain(1.2);
     }
-    translate([width, -10, 19]) {
+    translate([width, -12, 19]) {
       rotate([0,0,90]) {
         union () {
           mountain(2,10);
           translate([0,10,0]) {
-            mountain(2.2,10);
+            mountain(2.2,12);
           }
           translate([0,40,0]) {
-            mountain(1.4,10);
+            mountain(1.4,12);
           }
         }
         union () {
           translate([0,100,0]) {
-            mountain(1.2,10);
+            mountain(1.2,12);
           }
           translate([0,110,0]) {
-            mountain(1.7,10);
+            mountain(1.7,12);
           }
           translate([0,120,0]) {
-            mountain(2.2,10);
+            mountain(2.2,12);
           }
         }
       }
@@ -107,6 +107,23 @@ module base() {
 
 }
 
+module hookhole() {
+  // These are for some 3M mini hhoks 17006H
+  difference () {
+    union () {
+      // Back plane
+      cube([25, 30, 2.5]);
+      // Space for the hook
+      translate([(25 / 2 ) - ( 7 / 2 ), 0, 0]){
+        cube([7, 18 +4.5, 11]);
+      }
+    }
+    translate([0, 9, 2.7]) {
+      cube([30, 25, 4]);
+    }
+  }
+}
+
 difference() {
   union() {
     base();
@@ -115,5 +132,16 @@ difference() {
   translate([-100,-30,0]) {
     cube([100,100,100]);
   }
+  // Add some holes for hooks.
+  for ( l = [0, 1]) {
+    translate([30 + ( l * 90 ), -12.1, -0.1]) {
+      rotate([0,180,0]){
+        rotate([-90, 0, 0]) {
+          hookhole();
+        }
+      }
+    }
+  }
 }
+
 
