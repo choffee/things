@@ -121,8 +121,8 @@ module hookhole() {
       // Back plane
       cube([25, 30, 2.5]);
       // Space for the hook
-      translate([(25 / 2 ) - ( 7 / 2 ), 0, 0]){
-        cube([7, 18 +4.5, 11]);
+      translate([(25 / 2 ) - ( 8 / 2 ), 0, 0]){
+        cube([8, 18 +4.5, 11]);
       }
     }
     translate([0, 9, 2.7]) {
@@ -136,7 +136,8 @@ difference() {
     base();
     back();
   }
-  translate([-100,-30,0]) {
+  // Clean up the end
+  translate([-100,-30,00]) {
     cube([100,100,100]);
   }
   // Add some holes for hooks.
@@ -148,6 +149,10 @@ difference() {
         }
       }
     }
+  }
+  // Make the base thinner
+  translate([-20,-30,-21]) {
+    cube([200,200,30]);
   }
 }
 
