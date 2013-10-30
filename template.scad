@@ -1,6 +1,8 @@
 // Scad Template
 //
-//  Copyright 2012 John Cooper 
+//
+//
+//  Copyright 2013 John Cooper
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -17,10 +19,11 @@
 
 // Add some smoothing
 $fs=0.2;
+$fn=1;
 
-module a() {
+module main() {
 
 }
 
 
-a();
+main();
