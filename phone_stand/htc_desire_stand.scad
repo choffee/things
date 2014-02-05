@@ -19,6 +19,8 @@
 // Make the curves more curvey
 $fs=0.2;
 
+// This is the big hand from here:
+// http://www.thingiverse.com/thing:1288
 module hand () {
     scale([ 0.5, 0.5, 0.5 ]) 
        {import_stl("big-hand.stl", convexity = 5);}
